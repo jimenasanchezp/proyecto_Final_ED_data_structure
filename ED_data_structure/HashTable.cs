@@ -124,6 +124,8 @@ namespace ED_data_structure
             tabla[FuncionHash(clave)]?.Any(x => x.clave.Equals(clave)) ?? false;
 
         // ================= BUSCAR =================
+        // Dentro de HashTable.cs
+
         public List<(TKey Clave, TValue Valor)> Buscar(string filtro)
         {
             var resultado = new List<(TKey, TValue)>();
@@ -136,10 +138,13 @@ namespace ED_data_structure
                     foreach (var par in tabla[i])
                     {
                         string claveStr = par.clave.ToString();
-                        string valorStr = par.valor != null ? par.valor.ToString() : "";
+                        // string valorStr = par.valor != null ? par.valor.ToString() : ""; // Opcional si quieres buscar en valores
 
-                        if (claveStr.Contains(filtro) || valorStr.Contains(filtro))
+                        // CAMBIO AQUÍ
+                        if (claveStr.Equals(filtro))
+                        {
                             resultado.Add((par.clave, par.valor));
+                        }
                     }
                 }
             }

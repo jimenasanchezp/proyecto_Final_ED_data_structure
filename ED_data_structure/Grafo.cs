@@ -83,28 +83,27 @@ namespace ED_data_structure
 
         public string Print()
         {
-            //Console.Write("  ");
-            string matrizString;
-            matrizString = "  ";
+            string matrizString = "  ";
+
+            // Imprimir encabezados (A Z ...)
             foreach (var node in nodos)
             {
-                //  Console.Write(node.Data + " ");
                 matrizString += node.Data + " ";
             }
-            //Console.WriteLine();
-            matrizString += "\n";
 
+            // Salto de línea compatible con Windows
+            matrizString += Environment.NewLine;
+
+            // Imprimir filas de la matriz
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                //Console.Write(nodos[i].Data + " ");
-                matrizString += nodos[i].Data + " ";
+                matrizString += nodos[i].Data + " "; // Etiqueta de fila
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    //    Console.Write(matriz[i, j] + " ");
-                    matrizString += matriz[i, j] + " ";
+                    matrizString += matriz[i, j] + " "; // Valor 0 o 1
                 }
-                //Console.WriteLine();
-                matrizString += "\n";
+                // Salto de línea al final de cada fila
+                matrizString += Environment.NewLine;
             }
             return matrizString;
         }

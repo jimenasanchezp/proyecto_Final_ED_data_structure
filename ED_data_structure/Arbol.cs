@@ -35,7 +35,7 @@ namespace ED_data_structure
                 return new Nodo_Arbol(numero);
             }
 
-            if (numero== actual.Valor)
+            if (numero == actual.Valor)
             {
                 Console.WriteLine("El valor ya existe en el árbol.");
                 return actual;
@@ -109,45 +109,43 @@ namespace ED_data_structure
             return nodo;
         }
 
+        // --- MÉTODOS DE RECORRIDO ---
+
+        // 1. PreOrden (Público + Privado)
+        public void MostrarPreOrden()
+        {
+            MostrarPreOrdenRecursivo(raiz);
+            Console.WriteLine();
+        }
+
         private void MostrarPreOrdenRecursivo(Nodo_Arbol? nodo)
         {
             if (nodo != null)
             {
-                if (nodo == null)
-                    return;
-
-                // Paso 1: mostrar nodo
-                Console.Write(nodo.Valor + " ");
-
-                // Paso 2: recorrer izquierda
-                MostrarPreOrdenRecursivo(nodo.Izquierda);
-
-                // Paso 3: recorrer derecha
-                MostrarPreOrdenRecursivo(nodo.Derecha);
+                Console.Write(nodo.Valor + " "); // Raíz
+                MostrarPreOrdenRecursivo(nodo.Izquierda); // Izquierda
+                MostrarPreOrdenRecursivo(nodo.Derecha); // Derecha
             }
         }
 
+        // 2. InOrden (Público + Privado)
         public void MostrarInOrden()
         {
             MostrarInOrdenRecursivo(raiz);
-            Console.WriteLine(); // Salto de línea al final
+            Console.WriteLine();
         }
 
         private void MostrarInOrdenRecursivo(Nodo_Arbol? nodo)
         {
-            if (nodo == null)
-                return;
-
-            // Paso 1: recorrer izquierda
-            MostrarInOrdenRecursivo(nodo.Izquierda);
-
-            // Paso 2: mostrar el valor
-            Console.Write(nodo.Valor + " ");
-
-            // Paso 3: recorrer derecha
-            MostrarInOrdenRecursivo(nodo.Derecha);
+            if (nodo != null)
+            {
+                MostrarInOrdenRecursivo(nodo.Izquierda); // Izquierda
+                Console.Write(nodo.Valor + " "); // Raíz
+                MostrarInOrdenRecursivo(nodo.Derecha); // Derecha
+            }
         }
 
+        // 3. PostOrden (Público + Privado)
         public void MostrarPostOrden()
         {
             MostrarPostOrdenRecursivo(raiz);
@@ -156,17 +154,12 @@ namespace ED_data_structure
 
         private void MostrarPostOrdenRecursivo(Nodo_Arbol? nodo)
         {
-            if (nodo == null)
-                return;
-
-            // Paso 1: recorrer izquierda
-            MostrarPostOrdenRecursivo(nodo.Izquierda);
-
-            // Paso 2: recorrer derecha
-            MostrarPostOrdenRecursivo(nodo.Derecha);
-
-            // Paso 3: mostrar nodo
-            Console.Write(nodo.Valor + " ");
+            if (nodo != null)
+            {
+                MostrarPostOrdenRecursivo(nodo.Izquierda); // Izquierda
+                MostrarPostOrdenRecursivo(nodo.Derecha); // Derecha
+                Console.Write(nodo.Valor + " "); // Raíz
+            }
         }
     }
 }
