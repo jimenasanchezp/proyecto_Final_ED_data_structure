@@ -29,11 +29,11 @@
             this.btnEstado = new System.Windows.Forms.Button();
             this.txtResultado = new System.Windows.Forms.TextBox();
             this.grpOperaciones = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnPreOrden = new System.Windows.Forms.Button();
             this.btnInOrden = new System.Windows.Forms.Button();
             this.btnPostOrden = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.grpOperaciones.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 17);
+            this.label1.Size = new System.Drawing.Size(140, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Selecciona Estructura:";
             // 
@@ -82,7 +82,7 @@
             this.lblDato1.AutoSize = true;
             this.lblDato1.Location = new System.Drawing.Point(21, 90);
             this.lblDato1.Name = "lblDato1";
-            this.lblDato1.Size = new System.Drawing.Size(42, 17);
+            this.lblDato1.Size = new System.Drawing.Size(39, 16);
             this.lblDato1.TabIndex = 3;
             this.lblDato1.Text = "Dato:";
             // 
@@ -91,7 +91,7 @@
             this.lblDato2.AutoSize = true;
             this.lblDato2.Location = new System.Drawing.Point(192, 90);
             this.lblDato2.Name = "lblDato2";
-            this.lblDato2.Size = new System.Drawing.Size(96, 17);
+            this.lblDato2.Size = new System.Drawing.Size(87, 16);
             this.lblDato2.TabIndex = 5;
             this.lblDato2.Text = "Dato 2 / Prior:";
             // 
@@ -127,7 +127,7 @@
             // btnMostrar
             // 
             this.btnMostrar.BackColor = System.Drawing.Color.LightBlue;
-            this.btnMostrar.Location = new System.Drawing.Point(21, 85);
+            this.btnMostrar.Location = new System.Drawing.Point(21, 76);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(120, 35);
             this.btnMostrar.TabIndex = 8;
@@ -138,7 +138,7 @@
             // btnEstado
             // 
             this.btnEstado.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btnEstado.Location = new System.Drawing.Point(160, 85);
+            this.btnEstado.Location = new System.Drawing.Point(160, 73);
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(120, 35);
             this.btnEstado.TabIndex = 9;
@@ -148,8 +148,8 @@
             // 
             // txtResultado
             // 
-            this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResultado.BackColor = System.Drawing.Color.Black;
             this.txtResultado.Font = new System.Drawing.Font("Consolas", 10F);
@@ -180,34 +180,10 @@
             this.grpOperaciones.TabStop = false;
             this.grpOperaciones.Text = "Operaciones";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Orange;
-            this.btnBuscar.Location = new System.Drawing.Point(21, 137);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(259, 35);
-            this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Visible = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.Silver;
-            this.btnClear.Location = new System.Drawing.Point(21, 137);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(259, 35);
-            this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "Limpiar Todo (Clear)";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Visible = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // btnPreOrden
             // 
             this.btnPreOrden.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnPreOrden.Location = new System.Drawing.Point(21, 85);
+            this.btnPreOrden.Location = new System.Drawing.Point(21, 117);
             this.btnPreOrden.Name = "btnPreOrden";
             this.btnPreOrden.Size = new System.Drawing.Size(80, 35);
             this.btnPreOrden.TabIndex = 12;
@@ -219,7 +195,7 @@
             // btnInOrden
             // 
             this.btnInOrden.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnInOrden.Location = new System.Drawing.Point(107, 85);
+            this.btnInOrden.Location = new System.Drawing.Point(107, 117);
             this.btnInOrden.Name = "btnInOrden";
             this.btnInOrden.Size = new System.Drawing.Size(80, 35);
             this.btnInOrden.TabIndex = 13;
@@ -231,7 +207,7 @@
             // btnPostOrden
             // 
             this.btnPostOrden.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnPostOrden.Location = new System.Drawing.Point(193, 85);
+            this.btnPostOrden.Location = new System.Drawing.Point(193, 117);
             this.btnPostOrden.Name = "btnPostOrden";
             this.btnPostOrden.Size = new System.Drawing.Size(87, 35);
             this.btnPostOrden.TabIndex = 14;
@@ -240,12 +216,36 @@
             this.btnPostOrden.Visible = false;
             this.btnPostOrden.Click += new System.EventHandler(this.btnPostOrden_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Orange;
+            this.btnBuscar.Location = new System.Drawing.Point(21, 199);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(259, 35);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Silver;
+            this.btnClear.Location = new System.Drawing.Point(21, 158);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(259, 35);
+            this.btnClear.TabIndex = 10;
+            this.btnClear.Text = "Limpiar Todo (Clear)";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Visible = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(372, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 12;
             this.label3.Text = "Resultado:";
             // 
