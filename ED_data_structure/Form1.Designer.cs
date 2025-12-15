@@ -104,7 +104,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAgregar.Location = new System.Drawing.Point(21, 32);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(120, 35);
@@ -115,7 +115,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.LightCoral;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnEliminar.Location = new System.Drawing.Point(160, 32);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 35);
@@ -137,7 +137,7 @@
             // 
             // btnEstado
             // 
-            this.btnEstado.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btnEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnEstado.Location = new System.Drawing.Point(160, 73);
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(120, 35);
@@ -182,7 +182,7 @@
             // 
             // btnPreOrden
             // 
-            this.btnPreOrden.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnPreOrden.BackColor = System.Drawing.Color.FloralWhite;
             this.btnPreOrden.Location = new System.Drawing.Point(21, 117);
             this.btnPreOrden.Name = "btnPreOrden";
             this.btnPreOrden.Size = new System.Drawing.Size(80, 35);
@@ -194,7 +194,7 @@
             // 
             // btnInOrden
             // 
-            this.btnInOrden.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnInOrden.BackColor = System.Drawing.Color.FloralWhite;
             this.btnInOrden.Location = new System.Drawing.Point(107, 117);
             this.btnInOrden.Name = "btnInOrden";
             this.btnInOrden.Size = new System.Drawing.Size(80, 35);
@@ -206,7 +206,7 @@
             // 
             // btnPostOrden
             // 
-            this.btnPostOrden.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnPostOrden.BackColor = System.Drawing.Color.FloralWhite;
             this.btnPostOrden.Location = new System.Drawing.Point(193, 117);
             this.btnPostOrden.Name = "btnPostOrden";
             this.btnPostOrden.Size = new System.Drawing.Size(87, 35);
@@ -218,7 +218,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Orange;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnBuscar.Location = new System.Drawing.Point(21, 199);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(259, 35);
@@ -253,6 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(800, 550);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.grpOperaciones);

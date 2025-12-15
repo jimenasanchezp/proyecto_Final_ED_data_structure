@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +12,7 @@ namespace ED_data_structure
         private int[,] matriz;
         private bool dirigido;
         private bool ponderado;
+
         public Grafo(bool dirigido, bool ponderado)
         {
             nodos = new List<Nodo_grafo>();
@@ -44,6 +44,9 @@ namespace ED_data_structure
             }
 
             matriz = nuevaMatriz; // Reemplaza la matriz anterior
+
+            // --- ESTA LÍNEA ES LA QUE FALTABA PARA QUE SE VEA EN EL TXT ---
+            Console.WriteLine($"Nodo agregado: {nodo.Data}");
         }
 
         public void AddArista(int src, int dst, int w = 1)
@@ -55,6 +58,7 @@ namespace ED_data_structure
                 matriz[dst, src] = w;
             }
         }
+
         public void AddArista(char src, char dst, int w = 1)
         {
             int i = ObtenerIndice(src);
@@ -66,14 +70,16 @@ namespace ED_data_structure
             }
             if (matriz[i, j] != 0)
             {
-                Console.WriteLine("Error: Ya hay un arista asignada");
+                Console.WriteLine($"Error: Ya existe una arista entre {src} y {dst}");
                 return;
             }
             if (!ponderado) w = 1;
             matriz[i, j] = w;
             if (!dirigido)
                 matriz[j, i] = w;
-            Console.WriteLine("Arista añadida");
+
+            // --- Mensaje detallado de la arista ---
+            Console.WriteLine($"Arista agregada: {src} -> {dst}");
         }
 
         public bool CheckArista(int src, int dst)
@@ -84,29 +90,25 @@ namespace ED_data_structure
         public string Print()
         {
             string matrizString = "  ";
-
-            // Imprimir encabezados (A Z ...)
             foreach (var node in nodos)
             {
                 matrizString += node.Data + " ";
             }
-
-            // Salto de línea compatible con Windows
+            // Usamos Environment.NewLine para que se vea bien en el TextBox
             matrizString += Environment.NewLine;
 
-            // Imprimir filas de la matriz
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                matrizString += nodos[i].Data + " "; // Etiqueta de fila
+                matrizString += nodos[i].Data + " ";
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    matrizString += matriz[i, j] + " "; // Valor 0 o 1
+                    matrizString += matriz[i, j] + " ";
                 }
-                // Salto de línea al final de cada fila
                 matrizString += Environment.NewLine;
             }
             return matrizString;
         }
+
         public void BFS(char start)
         {
             int s = ObtenerIndice(start);
@@ -121,6 +123,7 @@ namespace ED_data_structure
             visitado[s] = true;
             cola.Enqueue(s);
 
+            Console.Write("Recorrido BFS: ");
             while (cola.Count > 0)
             {
                 int actual = cola.Dequeue();
@@ -135,6 +138,7 @@ namespace ED_data_structure
                     }
                 }
             }
+            Console.WriteLine();
         }
 
         public void DFS(char start)
@@ -146,7 +150,9 @@ namespace ED_data_structure
                 return;
             }
             bool[] visitado = new bool[nodos.Count];
+            Console.Write("Recorrido DFS: ");
             DFSRecursivo(s, visitado);
+            Console.WriteLine();
         }
 
         private void DFSRecursivo(int v, bool[] visitado)
@@ -162,11 +168,13 @@ namespace ED_data_structure
                 }
             }
         }
+
         public void EliminarArista(int src, int dst)
         {
             matriz[src, dst] = 0;
             if (!dirigido) matriz[dst, src] = 0;
         }
+
         public void EliminarArista(char src, char dst)
         {
             int i = ObtenerIndice(src);
@@ -178,41 +186,44 @@ namespace ED_data_structure
             }
             matriz[i, j] = 0;
             if (!dirigido) matriz[j, i] = 0;
-            Console.WriteLine("Arista eliminada");
+
+            Console.WriteLine($"Arista eliminada: {src} - {dst}");
         }
+
         public void RemoveNodo(char src)
         {
             int s = ObtenerIndice(src);
             if (s == -1)
             {
-                Console.WriteLine("Índice inválido");
+                Console.WriteLine($"Error: El nodo {src} no existe.");
                 return;
             }
 
-            // Eliminar el nodo de la lista
             nodos.RemoveAt(s);
 
             int size = matriz.GetLength(0);
             int[,] nuevaMatriz = new int[size - 1, size - 1];
 
-            // Copiar todas las filas y columnas excepto la que se elimina
             int filaNueva = 0;
             for (int i = 0; i < size; i++)
             {
-                if (i == s) continue; // saltar la fila eliminada
+                if (i == s) continue;
                 int colNueva = 0;
                 for (int j = 0; j < size; j++)
                 {
-                    if (j == s) continue; // saltar la columna eliminada
+                    if (j == s) continue;
                     nuevaMatriz[filaNueva, colNueva] = matriz[i, j];
                     colNueva++;
                 }
                 filaNueva++;
             }
 
-            // Reemplazar la matriz antigua
             matriz = nuevaMatriz;
+
+            // --- Mensaje de confirmación al eliminar ---
+            Console.WriteLine($"Nodo eliminado: {src}");
         }
+
         private int ObtenerIndice(char id)
         {
             for (int i = 0; i < nodos.Count; i++)
