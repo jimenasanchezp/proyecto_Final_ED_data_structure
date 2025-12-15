@@ -151,9 +151,9 @@
             this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResultado.BackColor = System.Drawing.Color.Black;
-            this.txtResultado.Font = new System.Drawing.Font("Consolas", 10F);
-            this.txtResultado.ForeColor = System.Drawing.Color.Lime;
+            this.txtResultado.BackColor = System.Drawing.Color.Pink;
+            this.txtResultado.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResultado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtResultado.Location = new System.Drawing.Point(375, 46);
             this.txtResultado.Multiline = true;
             this.txtResultado.Name = "txtResultado";
