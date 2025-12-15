@@ -41,7 +41,7 @@
             // cmbEstructuras
             // 
             this.cmbEstructuras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstructuras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstructuras.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstructuras.FormattingEnabled = true;
             this.cmbEstructuras.Items.AddRange(new object[] {
             "Árbol Binario",
@@ -58,54 +58,60 @@
             "Tabla Hash"});
             this.cmbEstructuras.Location = new System.Drawing.Point(24, 46);
             this.cmbEstructuras.Name = "cmbEstructuras";
-            this.cmbEstructuras.Size = new System.Drawing.Size(264, 28);
+            this.cmbEstructuras.Size = new System.Drawing.Size(264, 32);
             this.cmbEstructuras.TabIndex = 0;
             this.cmbEstructuras.SelectedIndexChanged += new System.EventHandler(this.cmbEstructuras_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 26);
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 16);
+            this.label1.Size = new System.Drawing.Size(172, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Selecciona Estructura:";
             // 
             // txtDato1
             // 
+            this.txtDato1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDato1.Location = new System.Drawing.Point(24, 110);
             this.txtDato1.Name = "txtDato1";
-            this.txtDato1.Size = new System.Drawing.Size(150, 22);
+            this.txtDato1.Size = new System.Drawing.Size(150, 30);
             this.txtDato1.TabIndex = 2;
             // 
             // lblDato1
             // 
             this.lblDato1.AutoSize = true;
-            this.lblDato1.Location = new System.Drawing.Point(21, 90);
+            this.lblDato1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDato1.Location = new System.Drawing.Point(21, 81);
             this.lblDato1.Name = "lblDato1";
-            this.lblDato1.Size = new System.Drawing.Size(39, 16);
+            this.lblDato1.Size = new System.Drawing.Size(50, 24);
             this.lblDato1.TabIndex = 3;
             this.lblDato1.Text = "Dato:";
             // 
             // lblDato2
             // 
             this.lblDato2.AutoSize = true;
-            this.lblDato2.Location = new System.Drawing.Point(192, 90);
+            this.lblDato2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDato2.Location = new System.Drawing.Point(192, 84);
             this.lblDato2.Name = "lblDato2";
-            this.lblDato2.Size = new System.Drawing.Size(87, 16);
+            this.lblDato2.Size = new System.Drawing.Size(112, 24);
             this.lblDato2.TabIndex = 5;
             this.lblDato2.Text = "Dato 2 / Prior:";
             // 
             // txtDato2
             // 
+            this.txtDato2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
             this.txtDato2.Location = new System.Drawing.Point(195, 110);
             this.txtDato2.Name = "txtDato2";
-            this.txtDato2.Size = new System.Drawing.Size(150, 22);
+            this.txtDato2.Size = new System.Drawing.Size(150, 30);
             this.txtDato2.TabIndex = 4;
             // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAgregar.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(21, 32);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(120, 35);
@@ -117,7 +123,8 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnEliminar.Location = new System.Drawing.Point(160, 32);
+            this.btnEliminar.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnEliminar.Location = new System.Drawing.Point(183, 32);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 35);
             this.btnEliminar.TabIndex = 7;
@@ -128,6 +135,7 @@
             // btnMostrar
             // 
             this.btnMostrar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnMostrar.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
             this.btnMostrar.Location = new System.Drawing.Point(21, 76);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(120, 35);
@@ -139,7 +147,8 @@
             // btnEstado
             // 
             this.btnEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnEstado.Location = new System.Drawing.Point(160, 73);
+            this.btnEstado.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnEstado.Location = new System.Drawing.Point(183, 76);
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(120, 35);
             this.btnEstado.TabIndex = 9;
@@ -152,9 +161,9 @@
             this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResultado.BackColor = System.Drawing.Color.Pink;
-            this.txtResultado.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResultado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtResultado.BackColor = System.Drawing.Color.LavenderBlush;
+            this.txtResultado.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResultado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtResultado.Location = new System.Drawing.Point(375, 46);
             this.txtResultado.Multiline = true;
             this.txtResultado.Name = "txtResultado";
@@ -176,17 +185,18 @@
             this.grpOperaciones.Controls.Add(this.btnMostrar);
             this.grpOperaciones.Location = new System.Drawing.Point(24, 150);
             this.grpOperaciones.Name = "grpOperaciones";
-            this.grpOperaciones.Size = new System.Drawing.Size(321, 240);
+            this.grpOperaciones.Size = new System.Drawing.Size(321, 262);
             this.grpOperaciones.TabIndex = 11;
             this.grpOperaciones.TabStop = false;
             this.grpOperaciones.Text = "Operaciones";
             // 
             // btnPreOrden
             // 
-            this.btnPreOrden.BackColor = System.Drawing.Color.FloralWhite;
-            this.btnPreOrden.Location = new System.Drawing.Point(21, 117);
+            this.btnPreOrden.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPreOrden.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnPreOrden.Location = new System.Drawing.Point(21, 121);
             this.btnPreOrden.Name = "btnPreOrden";
-            this.btnPreOrden.Size = new System.Drawing.Size(80, 35);
+            this.btnPreOrden.Size = new System.Drawing.Size(92, 35);
             this.btnPreOrden.TabIndex = 12;
             this.btnPreOrden.Text = "PreOrden";
             this.btnPreOrden.UseVisualStyleBackColor = false;
@@ -195,10 +205,11 @@
             // 
             // btnInOrden
             // 
-            this.btnInOrden.BackColor = System.Drawing.Color.FloralWhite;
-            this.btnInOrden.Location = new System.Drawing.Point(107, 117);
+            this.btnInOrden.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnInOrden.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnInOrden.Location = new System.Drawing.Point(118, 123);
             this.btnInOrden.Name = "btnInOrden";
-            this.btnInOrden.Size = new System.Drawing.Size(80, 35);
+            this.btnInOrden.Size = new System.Drawing.Size(92, 35);
             this.btnInOrden.TabIndex = 13;
             this.btnInOrden.Text = "InOrden";
             this.btnInOrden.UseVisualStyleBackColor = false;
@@ -207,8 +218,9 @@
             // 
             // btnPostOrden
             // 
-            this.btnPostOrden.BackColor = System.Drawing.Color.FloralWhite;
-            this.btnPostOrden.Location = new System.Drawing.Point(193, 117);
+            this.btnPostOrden.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPostOrden.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnPostOrden.Location = new System.Drawing.Point(216, 121);
             this.btnPostOrden.Name = "btnPostOrden";
             this.btnPostOrden.Size = new System.Drawing.Size(87, 35);
             this.btnPostOrden.TabIndex = 14;
@@ -220,7 +232,8 @@
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnBuscar.Location = new System.Drawing.Point(21, 199);
+            this.btnBuscar.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnBuscar.Location = new System.Drawing.Point(31, 207);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(259, 35);
             this.btnBuscar.TabIndex = 11;
@@ -232,7 +245,8 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.Silver;
-            this.btnClear.Location = new System.Drawing.Point(21, 158);
+            this.btnClear.Font = new System.Drawing.Font("Arial Narrow", 10.8F);
+            this.btnClear.Location = new System.Drawing.Point(31, 166);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(259, 35);
             this.btnClear.TabIndex = 10;
@@ -244,9 +258,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(372, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.Size = new System.Drawing.Size(88, 24);
             this.label3.TabIndex = 12;
             this.label3.Text = "Resultado:";
             // 
@@ -254,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(800, 550);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.grpOperaciones);

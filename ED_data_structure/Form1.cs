@@ -15,6 +15,7 @@ namespace ED_data_structure
         private ColaPrioridad colaPrioridad;
         private ListCircular listaCircular;
         private DoubleList listaDoble;
+        private CircularDoubleList listaDobleCircular;
         private Arbol arbol;
         private Grafo grafo;
         private HashTable<string, string> tablaHash;
@@ -36,6 +37,7 @@ namespace ED_data_structure
             colaPrioridad = new ColaPrioridad();
             listaCircular = new ListCircular();
             listaDoble = new DoubleList();
+            listaDobleCircular = new CircularDoubleList();
             arbol = new Arbol();
             grafo = new Grafo(false, false);
             tablaHash = new HashTable<string, string>();
@@ -65,14 +67,14 @@ namespace ED_data_structure
             // 2. Visibilidad Botones Árbol (Pre/In/Post)
             if (op == "Árbol Binario")
             {
-                btnMostrar.Visible = false; // Ocultar el "Mostrar Todo" genérico
+                btnMostrar.Visible = false;
                 btnPreOrden.Visible = true;
                 btnInOrden.Visible = true;
                 btnPostOrden.Visible = true;
             }
             else
             {
-                btnMostrar.Visible = true; // Mostrar el genérico
+                btnMostrar.Visible = true;
                 btnPreOrden.Visible = false;
                 btnInOrden.Visible = false;
                 btnPostOrden.Visible = false;
@@ -86,19 +88,22 @@ namespace ED_data_structure
                     lblDato2.Text = "Prioridad (1-3):";
                     txtDato2.Enabled = true;
                     break;
+                case "Diccionario":
+                    lblDato1.Text = "Clave / Filtro:";
+                    lblDato2.Text = "Valor (string):";
+                    txtDato2.Enabled = true;
+                    break;
                 case "Grafo":
                     lblDato1.Text = "Nodo Origen (char):";
                     lblDato2.Text = "Nodo Destino (char):";
                     txtDato2.Enabled = true;
                     break;
                 case "Tabla Hash":
-                case "Diccionario":
                     lblDato1.Text = "Clave / Filtro:";
                     lblDato2.Text = "Valor (string):";
                     txtDato2.Enabled = true;
                     break;
                 default:
-                    // Estructuras simples
                     lblDato1.Text = "Dato (int):";
                     lblDato2.Text = "N/A";
                     txtDato2.Enabled = false;
@@ -134,7 +139,7 @@ namespace ED_data_structure
             }
         }
 
-        // --- BOTÓN AGREGAR ---
+        // --- BOTÓN AGREGAR (Actualizado con limpieza) ---
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -145,13 +150,9 @@ namespace ED_data_structure
 
                 switch (structName)
                 {
-                    case "Pila (Stack)":
-                        pila.Push(new Node_stack(int.Parse(d1)));
-                        Log($"Push: {d1}");
-                        break;
-                    case "Cola Simple":
-                        colaSimple.Enqueue(int.Parse(d1));
-                        Log($"Enqueue: {d1}");
+                    case "Árbol Binario":
+                        EjecutarCapturandoConsola(() => arbol.Agregar(int.Parse(d1)));
+                        Log($"Agregado al Árbol: {d1}");
                         break;
                     case "Cola Circular":
                         colaCircular.Enqueue(int.Parse(d1));
@@ -165,17 +166,13 @@ namespace ED_data_structure
                         colaPrioridad.Enqueue(int.Parse(d1), int.Parse(d2));
                         Log($"Enqueue: {d1} con Prioridad {d2}");
                         break;
-                    case "Lista Circular":
-                        listaCircular.dd(new Node_ListCircular(int.Parse(d1)));
-                        Log($"Agregado a Lista Circular: {d1}");
+                    case "Cola Simple":
+                        colaSimple.Enqueue(int.Parse(d1));
+                        Log($"Enqueue: {d1}");
                         break;
-                    case "Lista Doble":
-                        listaDoble.Add(new Node_DoubleList(int.Parse(d1)));
-                        Log($"Agregado a Lista Doble: {d1}");
-                        break;
-                    case "Árbol Binario":
-                        EjecutarCapturandoConsola(() => arbol.Agregar(int.Parse(d1)));
-                        Log($"Agregado al Árbol: {d1}");
+                    case "Diccionario":
+                        diccionario.Insertar(d1, d2);
+                        Log($"Insertado Diccionario: [{d1}] = {d2}");
                         break;
                     case "Grafo":
                         char nodo = d1.Length > 0 ? d1[0] : '?';
@@ -189,15 +186,32 @@ namespace ED_data_structure
                             EjecutarCapturandoConsola(() => grafo.AddArista(nodo, destino));
                         }
                         break;
+                    case "Lista Circular":
+                        listaCircular.dd(new Node_ListCircular(int.Parse(d1)));
+                        Log($"Agregado a Lista Circular: {d1}");
+                        break;
+                    case "Lista Doble":
+                        listaDoble.Add(new Node_DoubleList(int.Parse(d1)));
+                        Log($"Agregado a Lista Doble: {d1}");
+                        break;
+                    case "Lista Doble Circular":
+                        listaDobleCircular.Add(int.Parse(d1));
+                        Log($"Agregado a Lista Doble Circular: {d1}");
+                        break;
+                    case "Pila (Stack)":
+                        pila.Push(new Node_stack(int.Parse(d1)));
+                        Log($"Push: {d1}");
+                        break;
                     case "Tabla Hash":
                         tablaHash.Insertar(d1, d2);
                         Log($"Insertado Hash: [{d1}] = {d2}");
                         break;
-                    case "Diccionario":
-                        diccionario.Insertar(d1, d2);
-                        Log($"Insertado Diccionario: [{d1}] = {d2}");
-                        break;
                 }
+
+                // --- LIMPIEZA AUTOMÁTICA ---
+                txtDato1.Clear();
+                txtDato2.Clear();
+                txtDato1.Focus();
             }
             catch (Exception ex)
             {
@@ -205,7 +219,7 @@ namespace ED_data_structure
             }
         }
 
-        // --- BOTÓN ELIMINAR ---
+        // --- BOTÓN ELIMINAR (Actualizado con limpieza) ---
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -213,12 +227,10 @@ namespace ED_data_structure
                 string structName = cmbEstructuras.SelectedItem.ToString();
                 switch (structName)
                 {
-                    case "Pila (Stack)":
-                        var popped = pila.Pop();
-                        Log($"Pop: {popped.Value}");
-                        break;
-                    case "Cola Simple":
-                        Log($"Dequeue: {colaSimple.Dequeue()}");
+                    case "Árbol Binario":
+                        int vArbol = int.Parse(txtDato1.Text);
+                        EjecutarCapturandoConsola(() => arbol.Eliminar(vArbol));
+                        Log($"Comando Eliminar ejecutado para: {vArbol}");
                         break;
                     case "Cola Circular":
                         Log($"Dequeue: {colaCircular.Dequeue()}");
@@ -229,18 +241,12 @@ namespace ED_data_structure
                     case "Cola Prioridad":
                         Log($"Dequeue: {colaPrioridad.Dequeue()}");
                         break;
-                    case "Lista Circular":
-                        int val = int.Parse(txtDato1.Text);
-                        bool res = listaCircular.Delete(val);
-                        Log(res ? $"Eliminado: {val}" : "No encontrado");
+                    case "Cola Simple":
+                        Log($"Dequeue: {colaSimple.Dequeue()}");
                         break;
-                    case "Lista Doble":
-                        Log("Operación Delete no implementada en DoubleList.");
-                        break;
-                    case "Árbol Binario":
-                        int vArbol = int.Parse(txtDato1.Text);
-                        EjecutarCapturandoConsola(() => arbol.Eliminar(vArbol));
-                        Log($"Comando Eliminar ejecutado para: {vArbol}");
+                    case "Diccionario":
+                        bool delD = diccionario.Eliminar(txtDato1.Text);
+                        Log(delD ? "Eliminado" : "Clave no encontrada");
                         break;
                     case "Grafo":
                         char nodo = txtDato1.Text[0];
@@ -252,15 +258,35 @@ namespace ED_data_structure
                             EjecutarCapturandoConsola(() => grafo.EliminarArista(nodo, dst));
                         }
                         break;
+                    case "Lista Circular":
+                        int val = int.Parse(txtDato1.Text);
+                        bool res = listaCircular.Delete(val);
+                        Log(res ? $"Eliminado: {val}" : "No encontrado");
+                        break;
+                    case "Lista Doble":
+                        int valLD = int.Parse(txtDato1.Text);
+                        bool resLD = listaDoble.Delete(valLD);
+                        Log(resLD ? $"Eliminado: {valLD}" : "No encontrado");
+                        break;
+                    case "Lista Doble Circular":
+                        int valLDC = int.Parse(txtDato1.Text);
+                        bool resLDC = listaDobleCircular.Delete(valLDC);
+                        Log(resLDC ? $"Eliminado: {valLDC}" : "No encontrado");
+                        break;
+                    case "Pila (Stack)":
+                        var popped = pila.Pop();
+                        Log($"Pop: {popped.Value}");
+                        break;
                     case "Tabla Hash":
                         bool delH = tablaHash.Eliminar(txtDato1.Text);
                         Log(delH ? "Eliminado" : "Clave no encontrada");
                         break;
-                    case "Diccionario":
-                        bool delD = diccionario.Eliminar(txtDato1.Text);
-                        Log(delD ? "Eliminado" : "Clave no encontrada");
-                        break;
                 }
+
+                // --- LIMPIEZA AUTOMÁTICA ---
+                txtDato1.Clear();
+                txtDato2.Clear();
+                txtDato1.Focus();
             }
             catch (Exception ex)
             {
@@ -268,7 +294,7 @@ namespace ED_data_structure
             }
         }
 
-        // --- BOTÓN MOSTRAR (Genérico) ---
+        // --- BOTÓN MOSTRAR ---
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             try
@@ -278,12 +304,6 @@ namespace ED_data_structure
 
                 switch (structName)
                 {
-                    case "Pila (Stack)":
-                        Log(pila.ToString());
-                        break;
-                    case "Cola Simple":
-                        Log(colaSimple.ToString());
-                        break;
                     case "Cola Circular":
                         Log(colaCircular.ToString());
                         break;
@@ -293,29 +313,30 @@ namespace ED_data_structure
                     case "Cola Prioridad":
                         Log(colaPrioridad.ToString());
                         break;
-                    case "Lista Circular":
-                        EjecutarCapturandoConsola(() => listaCircular.ShowList());
-                        break;
-                    case "Lista Doble":
-                        var nodo = listaDoble.Head;
-                        if (nodo == null) Log("Lista vacía");
-                        while (nodo != null)
-                        {
-                            txtResultado.AppendText(nodo.Data + " <-> ");
-                            nodo = nodo.Next;
-                        }
-                        txtResultado.AppendText("null\r\n");
-                        break;
-                    case "Grafo":
-                        Log(grafo.Print());
-                        break;
-                    case "Tabla Hash":
-                        Log(tablaHash.Mostrar());
+                    case "Cola Simple":
+                        Log(colaSimple.ToString());
                         break;
                     case "Diccionario":
                         Log(diccionario.Mostrar());
                         break;
-                        // NOTA: Árbol Binario ahora usa sus botones propios
+                    case "Grafo":
+                        Log(grafo.Print());
+                        break;
+                    case "Lista Circular":
+                        EjecutarCapturandoConsola(() => listaCircular.ShowList());
+                        break;
+                    case "Lista Doble":
+                        EjecutarCapturandoConsola(() => listaDoble.ShowList());
+                        break;
+                    case "Lista Doble Circular":
+                        EjecutarCapturandoConsola(() => listaDobleCircular.Show());
+                        break;
+                    case "Pila (Stack)":
+                        Log(pila.ToString());
+                        break;
+                    case "Tabla Hash":
+                        Log(tablaHash.Mostrar());
+                        break;
                 }
             }
             catch (Exception ex)
@@ -351,12 +372,8 @@ namespace ED_data_structure
                 string structName = cmbEstructuras.SelectedItem.ToString();
                 switch (structName)
                 {
-                    case "Pila (Stack)":
-                        Log(pila.IsEmpty() ? "Vacía" : "Tope: " + pila.Peek().Value);
-                        Log("Cantidad: " + pila.Count());
-                        break;
-                    case "Cola Simple":
-                        Log(colaSimple.IsEmpty() ? "Vacía" : "Frente: " + colaSimple.Peek());
+                    case "Árbol Binario":
+                        Log(arbol.Raiz == null ? "Árbol vacío" : "Raíz: " + arbol.Raiz.Valor);
                         break;
                     case "Cola Circular":
                         Log(colaCircular.IsEmpty() ? "Vacía" : "Frente: " + colaCircular.Peek());
@@ -367,23 +384,30 @@ namespace ED_data_structure
                     case "Cola Prioridad":
                         Log("Frente: " + colaPrioridad.Peek());
                         break;
+                    case "Cola Simple":
+                        Log(colaSimple.IsEmpty() ? "Vacía" : "Frente: " + colaSimple.Peek());
+                        break;
+                    case "Diccionario":
+                        Log("Elementos: " + diccionario.Count());
+                        break;
+                    case "Grafo":
+                        Log("Usa 'Mostrar Todo' para ver la matriz.");
+                        break;
                     case "Lista Circular":
                         Log("Cantidad: " + listaCircular.Count());
                         break;
                     case "Lista Doble":
                         Log(listaDoble.Head == null ? "Lista vacía" : "Cabeza: " + listaDoble.Head.Data);
                         break;
-                    case "Árbol Binario":
-                        Log(arbol.Raiz == null ? "Árbol vacío" : "Raíz: " + arbol.Raiz.Valor);
+                    case "Lista Doble Circular":
+                        Log(listaDobleCircular.IsEmpty() ? "Vacía" : "Cantidad: " + listaDobleCircular.Count());
                         break;
-                    case "Grafo":
-                        Log("Usa 'Mostrar Todo' para ver la matriz.");
+                    case "Pila (Stack)":
+                        Log(pila.IsEmpty() ? "Vacía" : "Tope: " + pila.Peek().Value);
+                        Log("Cantidad: " + pila.Count());
                         break;
                     case "Tabla Hash":
                         Log("Elementos: " + tablaHash.Count());
-                        break;
-                    case "Diccionario":
-                        Log("Elementos: " + diccionario.Count());
                         break;
                 }
             }
@@ -393,7 +417,7 @@ namespace ED_data_structure
             }
         }
 
-        // --- BOTÓN BUSCAR (Solo Hash y Diccionario) ---
+        // --- BOTÓN BUSCAR (Actualizado con limpieza) ---
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string filtro = txtDato1.Text;
@@ -424,6 +448,11 @@ namespace ED_data_structure
                 {
                     Log("No se encontraron coincidencias.");
                 }
+
+                // --- LIMPIEZA AUTOMÁTICA ---
+                txtDato1.Clear();
+                txtDato2.Clear();
+                txtDato1.Focus();
             }
             catch (Exception ex)
             {
@@ -438,11 +467,8 @@ namespace ED_data_structure
 
             switch (structName)
             {
-                case "Pila (Stack)":
-                    pila.Clear();
-                    break;
-                case "Cola Simple":
-                    colaSimple = new ColaSimple();
+                case "Árbol Binario":
+                    arbol = new Arbol();
                     break;
                 case "Cola Circular":
                     colaCircular = new ColaCircular();
@@ -453,17 +479,29 @@ namespace ED_data_structure
                 case "Cola Prioridad":
                     colaPrioridad = new ColaPrioridad();
                     break;
+                case "Cola Simple":
+                    colaSimple = new ColaSimple();
+                    break;
+                case "Grafo":
+                    grafo = new Grafo(false, false);
+                    break;
                 case "Lista Circular":
                     listaCircular = new ListCircular();
                     break;
                 case "Lista Doble":
                     listaDoble = new DoubleList();
                     break;
-                case "Árbol Binario":
-                    arbol = new Arbol();
+                case "Lista Doble Circular":
+                    listaDobleCircular = new CircularDoubleList();
                     break;
-                case "Grafo":
-                    grafo = new Grafo(false, false);
+                case "Pila (Stack)":
+                    pila.Clear();
+                    break;
+                case "Tabla Hash":
+                    tablaHash = new HashTable<string, string>();
+                    break;
+                case "Diccionario":
+                    diccionario = new Diccionario<string, string>();
                     break;
             }
             Log($"Estructura '{structName}' limpiada correctamente.");

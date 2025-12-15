@@ -111,7 +111,7 @@ namespace ED_data_structure
                 resultado += h.Dato + " ↔ ";
                 h = h.Next;
             }
-            return resultado + "null";
+            return resultado + " ";
         }
 
     }
