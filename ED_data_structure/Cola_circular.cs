@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ED_data_structure
 {
@@ -19,6 +15,7 @@ namespace ED_data_structure
         {
             return head == null;
         }
+
         public void Enqueue(int dato)
         {
             Nodo_cola nuevoNodo = new Nodo_cola(dato);
@@ -84,7 +81,5 @@ namespace ED_data_structure
             } while (h != head);
             return resultado + "(vuelve al inicio)";
         }
-
-
     }
 }

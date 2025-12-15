@@ -44,17 +44,18 @@
             this.cmbEstructuras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstructuras.FormattingEnabled = true;
             this.cmbEstructuras.Items.AddRange(new object[] {
-            "Pila (Stack)",
-            "Cola Simple",
+            "Árbol Binario",
             "Cola Circular",
             "Cola Doble",
             "Cola Prioridad",
+            "Cola Simple",
+            "Diccionario",
+            "Grafo",
             "Lista Circular",
             "Lista Doble",
-            "Árbol Binario",
-            "Grafo",
-            "Tabla Hash",
-            "Diccionario"});
+            "Lista Doble Circular",
+            "Pila (Stack)",
+            "Tabla Hash"});
             this.cmbEstructuras.Location = new System.Drawing.Point(24, 46);
             this.cmbEstructuras.Name = "cmbEstructuras";
             this.cmbEstructuras.Size = new System.Drawing.Size(264, 28);

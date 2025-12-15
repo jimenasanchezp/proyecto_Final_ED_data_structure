@@ -62,8 +62,10 @@
     </Compile>
     <Compile Include="Grafo.cs" />
     <Compile Include="HashTable.cs" />
+    <Compile Include="Lista_DobleCircular.cs" />
     <Compile Include="ListCircular.cs" />
     <Compile Include="Node_DoubleList.cs" />
+    <Compile Include="Node_ListaDobleCircular.cs" />
     <Compile Include="Node_ListCircular.cs" />
     <Compile Include="Node_stack.cs" />
     <Compile Include="Nodo_Arbol.cs" />

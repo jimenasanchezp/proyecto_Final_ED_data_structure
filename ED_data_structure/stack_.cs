@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace ED_data_structure
 {
@@ -37,7 +32,7 @@ namespace ED_data_structure
             topIndex = -1;
         }
 
-        // MÉTODOS  PUSH, POP, PEEK
+        // MÉTODOS PUSH, POP, PEEK
         public void Push(Node_stack nodo)
         {
             if (esEstatica)

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ED_data_structure
 {
@@ -15,8 +11,6 @@ namespace ED_data_structure
             get { return raiz; }
             set { raiz = value; }
         }
-
-        public int Numero { get; private set; }
 
         public Arbol()
         {
@@ -111,7 +105,7 @@ namespace ED_data_structure
 
         // --- MÉTODOS DE RECORRIDO ---
 
-        // 1. PreOrden (Público + Privado)
+        // 1. PreOrden
         public void MostrarPreOrden()
         {
             MostrarPreOrdenRecursivo(raiz);
@@ -122,13 +116,14 @@ namespace ED_data_structure
         {
             if (nodo != null)
             {
-                Console.Write(nodo.Valor + " "); // Raíz
-                MostrarPreOrdenRecursivo(nodo.Izquierda); // Izquierda
-                MostrarPreOrdenRecursivo(nodo.Derecha); // Derecha
+                // 
+                Console.Write(nodo.Valor + " - ");
+                MostrarPreOrdenRecursivo(nodo.Izquierda);
+                MostrarPreOrdenRecursivo(nodo.Derecha);
             }
         }
 
-        // 2. InOrden (Público + Privado)
+        // 2. InOrden
         public void MostrarInOrden()
         {
             MostrarInOrdenRecursivo(raiz);
@@ -139,13 +134,14 @@ namespace ED_data_structure
         {
             if (nodo != null)
             {
-                MostrarInOrdenRecursivo(nodo.Izquierda); // Izquierda
-                Console.Write(nodo.Valor + " "); // Raíz
-                MostrarInOrdenRecursivo(nodo.Derecha); // Derecha
+                MostrarInOrdenRecursivo(nodo.Izquierda);
+                // 
+                Console.Write(nodo.Valor + " - ");
+                MostrarInOrdenRecursivo(nodo.Derecha);
             }
         }
 
-        // 3. PostOrden (Público + Privado)
+        // 3. PostOrden
         public void MostrarPostOrden()
         {
             MostrarPostOrdenRecursivo(raiz);
@@ -156,9 +152,10 @@ namespace ED_data_structure
         {
             if (nodo != null)
             {
-                MostrarPostOrdenRecursivo(nodo.Izquierda); // Izquierda
-                MostrarPostOrdenRecursivo(nodo.Derecha); // Derecha
-                Console.Write(nodo.Valor + " "); // Raíz
+                MostrarPostOrdenRecursivo(nodo.Izquierda);
+                MostrarPostOrdenRecursivo(nodo.Derecha);
+                // 
+                Console.Write(nodo.Valor + " - ");
             }
         }
     }
